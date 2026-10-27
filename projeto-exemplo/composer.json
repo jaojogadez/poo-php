@@ -1,0 +1,15 @@
+{
+    "name": "joao/exemplo",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "João Pedro",
+            "email": "contato.dev.joaopedro@gmail.com"
+        }
+    ],
+    "require": {}
+}
