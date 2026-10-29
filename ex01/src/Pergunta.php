@@ -1,23 +1,34 @@
 <?php
-
 declare(strict_types=1);
 
-namespace App;
-
-class Pergunta 
+final class Pergunta
 {
-    public function __construct(
-        private string $enunciado,
-        private string $resposta 
-    ) {}
+    private string $enunciado;
+    private string $respostaEsperada;
 
-    public function getEnunciado() : string 
+    public function __construct(string $enunciado, string $respostaEsperada)
     {
-        return $enunciado;
+        $enunciado = trim($enunciado);
+        $respostaEsperada = trim($respostaEsperada);
+
+        if ($enunciado === '') {
+            throw new InvalidArgumentException('O enunciado não pode ser vazio.');
+        }
+        if ($respostaEsperada === '') {
+            throw new InvalidArgumentException('A resposta esperada não pode ser vazia.');
+        }
+
+        $this->enunciado = $enunciado;
+        $this->respostaEsperada = $respostaEsperada;
     }
 
-    public function getResposta() : string
+    public function getEnunciado(): string
     {
-        return $resposta;
+        return $this->enunciado;
+    }
+
+    public function getRespostaEsperada(): string
+    {
+        return $this->respostaEsperada;
     }
 }
